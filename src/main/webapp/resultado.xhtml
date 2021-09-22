@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8" />
+
+	<h:outputStylesheet library="css" name="estilo.css" />
+
+	<title>Lista Pessoa</title>
+
+</h:head>
+
+<h:body class="body">
+	<header>
+		<h:graphicImage library="imagens" name="anhanguera-logo.png">
+		</h:graphicImage>
+	</header>
+
+	<h1>Lista pessoas</h1>
+
+
+
+	<h:form id="frmconsultar">
+		
+
+		<h:inputText id="txtPesquisaNome" name= "txtPesquisaNome" value="#{pessoaBean.nome}"  />
+		<h:commandButton id="ConsultarPorDescricao" value="Consultar descrição" action="#{pessoaBean.consultarPorDesc(pessoaBean.nome)}" />
+	
+		
+		<h:commandButton id="home" value="Home" action="index" />
+		<hr />
+
+
+
+		<p:dataTable border="1" value="#{pessoaBean.pessoas}" var="pessoa">
+			<p:column>
+				<f:facet name="header">
+				Código
+			</f:facet>
+				<h:outputText value="#{pessoa.id}" />
+
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+				Nome
+			</f:facet>
+				<!--  #{pessoa.nome} -->
+				<h:outputText value="#{pessoa.nome}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+				Idade
+			</f:facet>
+				<h:outputText value="#{pessoa.idade}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+				Email
+			</f:facet>
+				<h:outputText value="#{pessoa.email}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+				Telefone
+			</f:facet>
+				<h:outputText value="#{pessoa.telefone}" />
+			</p:column>
+
+
+			<p:column>
+				<f:facet name="header">
+				Observação
+			</f:facet>
+				<h:outputText value="#{pessoa.observacao}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

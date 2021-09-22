@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8" />
+
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="script.js" />
+
+
+
+	<title>Cadastro de Pessoa</title>
+
+</h:head>
+
+<h:body class="body">
+
+	<header>
+		<h:graphicImage library="imagens" name="anhanguera-logo.png">
+		</h:graphicImage>
+	</header>
+
+
+	<h1>Cadastro de pesssoa</h1>
+
+	<h:form id="formCadPessoa">
+		<h:form id="Cadastro">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Código:">
+				</h:outputLabel>
+				<h:inputText value="#{pessoaBean.id}" readonly="true" />
+			
+				<h:outputLabel value="Nome:">
+				</h:outputLabel>
+				<h:inputText name="txtNome" id="txtNome" onclick="this.value = '';"
+					onchange="this.value = this.value.toUpperCase();"
+					onmouseover="this.style.backgroundColor = 'yellow';"
+					onmouseout="this.style.backgroundColor = 'white';"
+					value="#{pessoaBean.nome}"   />
+
+
+				<h:outputLabel value="Idade:">
+				</h:outputLabel>
+				<h:inputText value="#{pessoaBean.idade}"   />
+
+				<h:outputLabel value="E-mail:">
+				</h:outputLabel>
+				<h:inputText value="#{pessoaBean.email}"   />
+
+
+				<h:outputLabel value="Telefone:">
+				</h:outputLabel>
+				<h:inputText value="#{pessoaBean.telefone}"   />
+
+
+				<h:outputLabel value="Observações:">
+				</h:outputLabel>
+				<h:inputTextarea value="#{pessoaBean.observacao}"   />
+			</h:panelGrid>
+
+
+
+			<h:commandButton id="Cadastrar" value="Confirma Exclusão" action="#{pessoaBean.salvar}" /> |
+	
+
+
+		</h:form>
+
+
+	</h:form>
+
+	<footer> Rodapé </footer>
+</h:body>
+</html>

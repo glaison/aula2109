@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8" />
+
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="script.js" />
+
+
+
+	<title>Cadastro de Cidade</title>
+
+</h:head>
+
+<h:body class="body">
+
+	<header>
+		<h:graphicImage library="imagens" name="anhanguera-logo.png">
+		</h:graphicImage>
+	</header>
+
+
+	<h1>Cadastro de Cidade</h1>
+
+	<h:form id="formCadEst">
+		<h:form id="CadastroEst">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome da  Cidade:">
+				</h:outputLabel>
+				<h:inputText name="txtDesc" id="txtDesc" onclick="this.value = '';"
+					onchange="this.value = this.value.toUpperCase();"
+					onmouseover="this.style.backgroundColor = 'yellow';"
+					onmouseout="this.style.backgroundColor = 'white';"
+					value="#{cidadeBean.nome}" />
+
+
+				<h:outputLabel>Estado:</h:outputLabel>
+		
+				<h:selectOneMenu  value="#{cidadeBean.idEstado}">
+					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true" />
+					<f:selectItems value="#{estadoBean.estadoList}"	var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado.id}" />
+				</h:selectOneMenu>
+
+			</h:panelGrid>
+
+			<h:commandButton id="Cadastrar" value="Cadastrar"
+				action="#{cidadeBean.adicionar}" />
+
+			<h:messages showDetail="true" showSumary="true" errorStyle="color:red" infoStyle="color:green"
+			warnStyle="color:orage" fatalStyle ="color:gray"/>
+		</h:form>
+
+
+	</h:form>
+
+	<footer> Rodapé </footer>
+</h:body>
+</html>
